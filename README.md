@@ -3,7 +3,7 @@
 One page, mobile first website for Robert Tree Felling, a fully insured tree felling business serving Sandton and nearby suburbs.
 Static HTML, CSS and a little JavaScript. No build step. Open `index.html` in a browser, or serve the folder with any static server.
 
-Live site (GitHub Pages): https://darrenrosbon.github.io/robert-tree-felling/
+Live site (GitHub Pages): https://darrenrosbon.github.io/robert-tree-felling-site/
 
 ## Business details
 
