@@ -122,11 +122,15 @@ main > section.facts { padding-bottom: 8px; }
 .ico { width: 1em; height: 1em; fill: currentColor; flex: none; }
 .btn .ico { font-size: 1.25rem; }
 .btn-solid { background: var(--forest); color: var(--on-forest); }
-.btn-solid:hover { background: color-mix(in srgb, var(--forest) 85%, white); }
+.btn-solid:hover { background: #a0e481; background: color-mix(in srgb, var(--forest) 85%, white); }
 .btn-light { background: #f3f8ee; color: #0c3b24; }
 .btn-light:hover { background: #fff; }
 .btn-outline { border-color: rgba(251, 249, 244, .75); color: var(--ink); }
 .btn-outline:hover { background: rgba(251, 249, 244, .14); }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(143, 224, 107, .18); }
+a, button, summary, label { touch-action: manipulation; }
+.sheet-back { touch-action: none; }
 
 /* ---------- Header ---------- */
 .site-head {
@@ -181,7 +185,7 @@ main > section.facts { padding-bottom: 8px; }
 .burger[aria-expanded="true"] .burger-lines i:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 @media (prefers-reduced-motion: reduce) { .burger-lines i { transition: none; } }
 .nav-mobile {
-  position: fixed; inset: var(--head-h) 0 auto 0; z-index: 39;
+  position: fixed; top: var(--head-h); right: 0; bottom: auto; left: 0; z-index: 39;
   background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: var(--shadow);
   padding: 8px 16px 20px;
   transform: translateY(-12px); opacity: 0; visibility: hidden;
@@ -210,9 +214,9 @@ main > section.facts { padding-bottom: 8px; }
 .show-all .img-fade { opacity: 1 !important; }
 .show-all .reveal { opacity: 1 !important; transform: none !important; }
 @media (prefers-reduced-motion: reduce) { .img-fade { opacity: 1; transition: none; } }
-.hero-img { transform: translateZ(0); position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.hero-img { transform: translateZ(0); position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .hero::after {
-  content: ""; position: absolute; inset: 0; z-index: -1;
+  content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1;
   background:
     linear-gradient(105deg, rgba(5, 32, 19, .88) 0%, rgba(5, 32, 19, .62) 45%, rgba(5, 32, 19, .2) 100%), linear-gradient(180deg, rgba(12, 59, 36, 0) 50%, var(--band) 100%);
 }
@@ -309,13 +313,13 @@ main > section.section.process { position: relative; isolation: isolate; overflo
 /* Photo is dimmed with a filter and masked with an eased, long gradient, so it
    dissolves into the page colour with no visible band or edge. */
 .process-bg {
-  position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -2; width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 60%;
 }
 /* Dimming and the fade use the page colour itself, so they blend with no band.
    Plain gradients are far cheaper to scroll than a mask plus a filter. */
 .process::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; pointer-events: none;
   background: linear-gradient(180deg, rgba(4, 22, 14, .5), rgba(4, 22, 14, .3) 50%, rgba(4, 22, 14, .55));
 }
 .process h2 { max-width: 14ch; }
@@ -355,8 +359,8 @@ main > section.section.process { position: relative; isolation: isolate; overflo
 /* ---------- Quote ---------- */
 .quote-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2); overflow: hidden; }
 .map { position: relative; min-height: 240px; background: var(--paper-2); overflow: hidden; }
-.map-static { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity .5s ease; }
+.map-static { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.map iframe { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity .5s ease; }
 .map.live iframe { opacity: 1; }
 .map.live .map-static, .map.live .map-pin, .map.live .map-load, .map.live .map-credit { display: none; }
 .map-pin { position: absolute; left: 50%; top: 50%; width: 42px; height: 42px; margin: -42px 0 0 -21px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--leaf); color: var(--on-forest); display: grid; place-items: center; box-shadow: 0 8px 18px -6px rgba(0,0,0,.7); }
@@ -373,6 +377,7 @@ main > section.section.process { position: relative; isolation: isolate; overflo
 .map-pill {
   position: absolute; left: 10px; bottom: 10px;
   display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px;
+  background: rgba(11, 40, 25, .94);
   background: color-mix(in srgb, var(--paper) 94%, transparent);
   border-radius: var(--radius); box-shadow: var(--shadow);
 }
@@ -411,7 +416,7 @@ form { display: block; }
 .select-btn:focus-visible, .select-btn[aria-expanded="true"] { outline: 3px solid var(--leaf); border-color: var(--leaf); }
 .field.invalid .select-btn { border-color: #d9583a; }
 .sheet-back {
-  position: fixed; inset: 0; z-index: 200; background: rgba(4, 22, 14, .62);
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 200; background: rgba(4, 22, 14, .62);
   opacity: 0; visibility: hidden; transition: opacity .3s, visibility 0s .3s;
 }
 .sheet-back.open { opacity: 1; visibility: visible; transition: opacity .3s, visibility 0s; }
@@ -557,12 +562,12 @@ footer ul li { padding: 5px 0; }
 main > section.section:not(.process), main > section.areas { border-top: 0; }
 main > section#services { position: relative; padding-top: calc(var(--section-y) + 56px); }
 main > section#services::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 140px; pointer-events: none;
+  content: ""; position: absolute; top: 0; right: 0; bottom: auto; left: 0; height: 140px; pointer-events: none;
   background: linear-gradient(180deg, var(--band), transparent);
 }
 main > section#services > .wrap { position: relative; }
 main > section.process::after {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; pointer-events: none;
   background: linear-gradient(180deg, var(--paper), rgba(11, 40, 25, 0) 190px, rgba(11, 40, 25, 0) calc(100% - 190px), var(--paper));
 }
 main > section.areas {
@@ -582,7 +587,7 @@ main > section#quote { padding-bottom: 44px; background: linear-gradient(180deg,
 .site-head .head-cta { min-height: 44px; }
 .burger { width: 40px; height: 40px; border: 0; border-radius: 12px; background: var(--leaf); color: #0a2115; }
 .nav-mobile {
-  inset: calc(var(--head-h) + 6px) 12px auto 12px; padding: 6px 16px 16px; border-radius: 18px;
+  top: calc(var(--head-h) + 6px); right: 12px; bottom: auto; left: 12px; padding: 6px 16px 16px; border-radius: 18px;
   border: 1px solid rgba(143, 224, 107, .3); background: rgba(9, 32, 20, .95);
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
@@ -638,7 +643,7 @@ html { scroll-behavior: smooth; }
 @media (max-width: 767px) {
   .why-grid { grid-template-areas: "photo" "list" "cta"; }
   .why-photo { grid-area: photo; position: relative; }
-  .why-photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(4, 22, 14, 0) 38%, rgba(4, 22, 14, .88) 100%); }
+  .why-photo::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none; background: linear-gradient(180deg, rgba(4, 22, 14, 0) 38%, rgba(4, 22, 14, .88) 100%); }
   .why-head { grid-area: photo; align-self: end; position: relative; z-index: 2; padding: 0 20px 22px; }
   .why-head h2 { text-shadow: 0 2px 16px rgba(0, 0, 0, .55); }
   .why-head .lead { margin-top: 10px; color: #e3eee5; text-shadow: 0 1px 12px rgba(0, 0, 0, .6); }
