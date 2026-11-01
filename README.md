@@ -8,6 +8,7 @@ Live site (GitHub Pages): https://darrenrosbon.github.io/robert-tree-felling-sit
 ## Business details
 
 - Phone and WhatsApp: +27 73 130 2202
+- Email: robertmapeture81@gmail.com
 - Hours: Mon to Sat, 8am to 5pm, closed Sunday
 - Area: Sandton, Gauteng, plus Sunninghill, Woodmead, Bryanston, Rivonia, Fourways, Randburg, Morningside, Midrand and Johannesburg
 - Services: tree felling, stump uprooting, bush site clearance, tree trimming, palm cleaning, instant lawn
